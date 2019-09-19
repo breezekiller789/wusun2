@@ -1,0 +1,41 @@
+body {
+    height: 100%;
+    margin: 0px;
+}
+
+/* Header 在上方 內部文字置中 */
+#header {
+    background: #eef7f2;
+    text-align: center;
+    height: 20vh;       /*什麼時候會要用到vh，用vh在zoom in zoom out會變怪*/
+}
+
+/* 中間布局佔 螢幕高度 80 % */
+#backdrop {
+  height: 80vh;
+}
+
+/* Nav 選單列靠左邊排列 佔寬度15% */
+#nav {
+    background: #dfecd5;
+    width: 20%;
+    float: left;
+    height: 100%;
+}
+
+/* Content 靠右邊 不過我們可以一樣用同方向浮動排列即可 */
+#content {
+    background: #c4d7d6;
+    width: 80%;
+    float: right;
+    height: 100%;
+}
+
+
+/* Footer 在最下方 無須浮動 */
+#footer {
+    color: gray;
+    background: #f7f4ed;
+    height: 20%;
+    clear: both;
+}

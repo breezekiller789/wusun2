@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Form sample</title>
+        <style>
+            /* 分配元素  (! 需要連續的空間) */
+            .wrap_area {
+                display: grid;
+                grid-template-columns: 200px 50px auto 50px 200px;
+                grid-template-rows: 10% auto 100px;
+                grid-template-areas:
+                    "header header header header header"
+                    "nav  context context context context"
+                    "footer footer footer footer footer";
+                height: 100vh;
+                margin: 0 auto;
+            }
+
+            .header {
+                grid-area: header;
+                background-color: #eef7f2;
+                text-align: center;
+            }
+
+            .content {
+                grid-area: context;
+                background-color: #c4d7d6;
+                padding: 100px;
+            }
+
+            .nav {
+                grid-area: nav;
+                background-color: #dfecd5;
+            }
+
+            .footer {
+                grid-area: footer;
+                background-color: gray;
+                color: white;
+                text-align: center;
+            }
+
+            .footer>p>span {
+                color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="wrap_area">
+            <!-- 頁首 -->
+            <div class="header">
+                <h1 style="padding-top:10px;">GAIS Form Demo</h1>
+            </div>
+
+
+
+            <!-- 導覽列 -->
+            <div class="nav">
+            </div>
+
+            <!-- 內容主體 -->
+            <div class="content">
+
+                <p>GET submit</p>
+                <form action="get_name" method="GET">
+                    姓名：<input name="your_name" type='text'>
+                    <br><br>
+                    <input type='submit' value='送出表單'>
+                </form>
+
+                <br><br>
+                <p>POST submit</p>
+                <form action="post_login" method="POST">
+                    姓名：<input name="your_name" type='text'><br><br>
+                    密碼：<input name="your_password" type='password'>
+                    <br><br>
+                    <input type='submit' value='送出表單'>
+                </form>
+
+            </div>
+
+
+
+            <!-- 頁尾 -->
+            <div class="footer">
+                <p style="font-size: 0.8em">Copyright (c) 2019-2022</p>
+                <p style="font-size: 0.8em">GAIS Lab <span>智皓徵女友</span></p>
+            </div>
+        </div>
+
+    </body>
+
+</html>

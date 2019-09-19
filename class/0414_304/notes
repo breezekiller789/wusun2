@@ -1,0 +1,4 @@
+Q: *s = (char *)malloc(sizeof(char) * 6);
+    那要宣告下一個呢？
+
+

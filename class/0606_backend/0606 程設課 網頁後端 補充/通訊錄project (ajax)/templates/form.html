@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>API sample</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout_grid.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <div class="wrap_area">
+            <!-- 頁首 -->
+            <div class="header">
+                <h1 style="padding-top:10px;">蓋世實驗班 第五課 API Demo</h1>
+            </div>
+
+
+
+            <!-- 導覽列 -->
+            <div class="nav">
+                <ul style="color:green;">
+                    <li>選單 1</li>
+                    <li>選單 2</li>
+                    <li>選單 3</li>
+                    <li>選單 4</li>
+                    <li>選單 5</li>
+                </ul>
+            </div>
+
+            <!-- 內容主體 -->
+            <div class="content">
+
+                <p>新增聯絡人</p>  <!--$("#ID").action()-->
+                <div>
+                    姓名：<input id="add_name" type='text'>
+                    電話：<input id="add_phone" type='text'>
+                    住址：<input id="add_address" type='text'>
+                    <button id="add">新增</button>  <span id="add_output"></span>
+                </div>
+
+                <p>查詢聯絡人</p>
+                <div>
+                    姓名：<input id="search_name" type='text'><button id="search_n">搜尋</button>
+                    電話：<input id="search_phone" type='text'><button id="search_p">搜尋</button>
+                    住址：<input id="search_address" type='text'><button id="search_a">搜尋</button>
+                    <span id="search_output"></span>
+                </div>
+
+                <p>編輯聯絡人</p>
+                <div>
+                    姓名：<input id="edit_name" type='text'>
+                    電話：<input id="edit_phone" type='text'>
+                    住址：<input id="edit_address" type='text'>
+                    UID：<a id="edit_uid"></a>
+                    <button id="edit">編輯</button>
+                    <span id="edit_output"></span>
+                </div>
+
+
+                <!--聯絡人清單-->
+                <table id="contact_table" style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>-->
+                            <!--<td>MyName</td>-->
+                            <!--<td>0908070605</td>-->
+                            <!--<td>中正大學</td>-->
+                        <!--</tr>-->
+                    </tbody>
+                </table>
+
+
+
+
+            </div>
+
+
+
+            <!-- 頁尾 -->
+            <div class="footer">
+                <p style="font-size: 0.8em">Copyright (c) 2019-2022</p>
+                <p style="font-size: 0.8em">GAIS Lab <span>智皓徵女友</span></p>
+            </div>
+        </div>
+
+        <script>
+            var now_list = []
+            // 當按下 新增 按鈕時
+            $("#add").click(function () {
+                console.log($("#add_name").val());
+                console.log($("#add_phone").val());
+                console.log($("#add_address").val());
+                $.ajax({
+                        type :"POST",
+                        url  : "/add",
+                        data : {
+                            name : $("#add_name").val(),
+                            phone : $("#add_phone").val(),
+                            address : $("#add_address").val(),
+                            },
+                        dataType: "json",
+                        success : function(response) {
+                            console.log(response)
+                            $("#add_output").html(JSON.stringify(response));
+                    }
+                })
+
+            })
+
+            // 當按下 搜尋 按鈕時
+            $("#search_n").click(function () {  // TODO 姓名
+                console.log($("#search_name").val());
+                $.ajax({
+                        type :"GET",
+                        url  : "/search",
+                        data : {
+                            field : "name",
+                            value : $("#search_name").val()
+                            },
+                        dataType: "json",
+                        success : function(response) {
+                            console.log(response)
+                            now_list = response;  // 紀錄現在的列表
+                            $("#contact_table tbody>tr").remove();   // 先清空表格
+                            response.forEach(function(data, index) {
+                                var name = data["name"];
+                                var phone = data["phone"];
+                                var address = data["address"];
+                                var edit_btn = "<button onclick='edit_btn(" + index + ")'>Edit</button>";
+                                var del_btn = "<button onclick='delete_btn(" + index + ")'>Delete</button>";
+                                var markup = "<tr><td>" + name + "</td><td>" + phone + "</td><td>" + address +"</td><td>" + edit_btn + del_btn + "</td></tr>";
+                                $("table tbody").append(markup);
+                            });
+                    }
+                })
+            })
+
+            $("#search_p").click(function () {  // TODO 電話
+                console.log($("#search_phone").val());
+                $.ajax({
+                        type :"GET",
+                        url  : "/search",
+                        data : {
+                            field : "phone",
+                            value : $("#search_phone").val()
+                            },
+                        dataType: "json",
+                        success : function(response) {
+                            console.log(response)
+                            now_list = response;  // 紀錄現在的列表
+                            $("#contact_table tbody>tr").remove();   // 先清空表格
+                            response.forEach(function(data, index) {
+                                var name = data["name"];
+                                var phone = data["phone"];
+                                var address = data["address"];
+                                var edit_btn = "<button onclick='edit_btn(" + index + ")'>Edit</button>";
+                                var del_btn = "<button onclick='delete_btn(" + index + ")'>Delete</button>";
+                                var markup = "<tr><td>" + name + "</td><td>" + phone + "</td><td>" + address +"</td><td>" + edit_btn + del_btn + "</td></tr>";
+                                $("table tbody").append(markup);
+                            });
+                    }
+                })
+            })
+
+            $("#search_a").click(function () {  // TODO 地址
+                console.log($("#search_address").val());
+                $.ajax({
+                        type :"GET",
+                        url  : "/search",
+                        data : {
+                            field : "address",
+                            value : $("#search_address").val()
+                            },
+                        dataType: "json",
+                        success : function(response) {
+                            console.log(response)
+                            now_list = response;  // 紀錄現在的列表
+                            $("#contact_table tbody>tr").remove();   // 先清空表格
+                            response.forEach(function(data, index) {
+                                var name = data["name"];
+                                var phone = data["phone"];
+                                var address = data["address"];
+                                var edit_btn = "<button onclick='edit_btn(" + index + ")'>Edit</button>";
+                                var del_btn = "<button onclick='delete_btn(" + index + ")'>Delete</button>";
+                                var markup = "<tr><td>" + name + "</td><td>" + phone + "</td><td>" + address +"</td><td>" + edit_btn + del_btn + "</td></tr>";
+                                $("table tbody").append(markup);
+                            });
+                    }
+                })
+            })
+
+            // 列表上的 EDIT 按鈕
+            var edit_btn = function (index) {
+                data = now_list[index];
+                $("#edit_name").val(data["name"]);
+                $("#edit_phone").val(data["phone"]);
+                $("#edit_address").val(data["address"]);
+                $("#edit_uid").html(data["uid"]);
+            }
+
+            // 列表上的 DELETE 按鈕
+            var delete_btn = function (index) {
+                data = now_list[index];
+                delete_uid = data['uid'];
+                console.log(index, delete_uid)
+            }
+
+
+        </script>
+    </body>
+
+</html>

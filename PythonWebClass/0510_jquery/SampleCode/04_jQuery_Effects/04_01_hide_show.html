@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Test1").click(function () {
+                $("#Test1").hide();
+            });
+            $("#Test1").click(function () {
+                $("#Test2").show();
+            });
+            $("#btnOnOff").click(function () {
+                $("#Test3").toggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="Test1" style="background-color:bisque;">
+        This is Test1.
+    </div>
+    <div id="Test2" style="background-color:chocolate; display: none;">
+        This is Test2.
+    </div>
+    <button id="btnOnOff" type="button">Toggle it!</button>
+    <div id="Test3" style="background-color:darkcyan;">
+        This is Test3.
+    </div>
+</body>
+
+</html>

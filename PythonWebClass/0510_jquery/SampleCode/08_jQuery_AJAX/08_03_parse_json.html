@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log($.parseJSON('{"Name": "Gary", "Age" : 23 }'));
+            let parsingResult = $.parseJSON('{"Name": "Gary", "Age" : 23 }');
+            console.log(parsingResult.Name);
+            console.log(parsingResult.Age);
+            console.log(parsingResult["Name"]);
+            console.log(parsingResult["Age"]);
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

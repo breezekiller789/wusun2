@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnLoad").click(function () {
+                $("p").load("text.txt");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btnLoad" type="button"> Load Me </button>
+    <span>
+        <p style="background-color:bisque;"> aaa </p>
+    </span>
+</body>
+
+</html>

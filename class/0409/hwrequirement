@@ -1,0 +1,12 @@
+tcount using BST
+(1).a line contains a key
+i   apple                   apple   3
+i   banana                  banana  2
+i   apple           --->>>  juice   1
+i   juice
+d   banana
+f   apple
+
+
+BST :
+level order traversal

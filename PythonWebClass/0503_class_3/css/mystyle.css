@@ -1,0 +1,58 @@
+/* HTML Tag (Type) */
+pre {
+    background-color: seashell;
+}
+
+/* Element id */
+#footer {
+    color: goldenrod;
+}
+
+/* Element class */
+.myclass {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+/* 後代選擇器 (子孫元素都包) */
+pre span {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* 子元素選擇器 */
+pre > span {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* 相鄰選擇器 */
+pre + a {
+    color:red;
+}
+
+
+/* Grouping */
+h1, h2, h3, h4 {
+    font-family: '標楷體';
+}
+
+/* Tag + Class selectors */
+pre.myclass {
+    font-family: '標楷體';
+}
+
+/* Id + Class selectors */
+#footer.myclass {
+    font-family: '標楷體';
+}
+
+
+
+
+.text_green {
+    color: green !important;
+}

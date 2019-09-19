@@ -1,0 +1,6 @@
+ASCII -> 0
+europe -> 110 10____
+中日韓 -> 1110 10____ 10___
+search : UTF-8, BIG5, unicode
+
+Q : 

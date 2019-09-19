@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnFadeIn").click(function () {
+                $("#Test1").fadeIn();
+            });
+            $("#btnFadeOut").click(function () {
+                $("#Test2").fadeOut();
+            });
+            $("#btnFadeToggle").click(function () {
+                $("#Test3").fadeToggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btnFadeIn" type="button">Fade In Test1!</button>
+    <div id="Test1" style="background-color:bisque; display: none;">
+        This is Test1.
+    </div>
+    <button id="btnFadeOut" type="button">Fade Out Test2!</button>
+    <div id="Test2" style="background-color:chocolate;">
+        This is Test2.
+    </div>
+    <button id="btnFadeToggle" type="button">Toggle it!</button>
+    <div id="Test3" style="background-color:darkcyan;">
+        This is Test3.
+    </div>
+</body>
+
+</html>

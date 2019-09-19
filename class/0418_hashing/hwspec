@@ -1,0 +1,18 @@
+作業：
+tcount 用ＢＳＴ
+（１）一行一個Term，用ＢＳＴ做Counting，按照Count序大到小輸出
+        例如： while(fgets(...)){
+                    insert_BST()   
+                }
+                BST2Array()
+                sort()
+        可以對ｌｉｎｋｅｄｌｉｓｔ做traversal，然後把資料放進陣列，再使用qsort。
+        先準備一個陣列，不管哪一個traversal，原本是要印東西，把它改成說把資料放進陣列。
+        兩種做法：array of structure，把資料複製一份到一個陣列，或者pointer array，
+        一個陣列，裡面放的都是每個節點的pointer，然後再對這個pointer array做排序，速度比較快。
+
+        struct tnode *nodearray[size]{
+            
+        };
+（２）Bonus：測資都變成英文測資，可能是一篇報導，裡頭一堆英文，然後看哪個英文
+             出現頻率最高。

@@ -1,0 +1,15 @@
+prog#6
+·sorting比較
+·要有report
+qsort
+merge sort
+heap sort
+bonus : radix sort
+比較執行時間。
+資料產生，使用rand()，自動產生資料。
+sortcmp的參數：
+-n  numerical
+-N  number of data elements
+-w  word length
+-m  max value
+-a  alphabet set side

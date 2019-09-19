@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("08_02_json.json", function (data, status) {
+                console.log("--------- get: 08_02_json.json ---------");
+                console.log(status);
+                console.log(data);
+                console.log(data.Name);
+            });
+
+            $.get("08_02_json.txt", function (data, status) {
+                console.log("--------- get: 08_02_json.txt ---------");
+                console.log(status);
+                console.log(data);
+                console.log(data.Name);
+            });
+
+            $.getJSON("08_02_json.txt", function (data, status) {
+                console.log("--------- getJSON: 08_02_json.txt ---------");
+                console.log(status);
+                console.log(data);
+                console.log(data.Name);
+            });
+
+            $.getJSON("GET.php", {
+                name: "Gary",
+                age: 25000
+            }, function (data, status) {
+                console.log("--------- get: GET.php ---------");
+                console.log(status);
+                console.log(data);
+                console.log(data.Name);
+            });
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

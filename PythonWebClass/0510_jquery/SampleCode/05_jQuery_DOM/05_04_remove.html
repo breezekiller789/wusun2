@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnRemove").click(function () {
+                $("span").remove();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btnRemove" type="button"> Remove span </button>
+    <span>
+        <div style="background-color:bisque;"> aaa </div>
+        <div style="background-color:darkred"> bbb </div>
+    </span>
+</body>
+
+</html>

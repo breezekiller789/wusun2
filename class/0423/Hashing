@@ -1,0 +1,19 @@
+Hashing : 
+- hash function
+- hash table
+- loading factor (0.5) 資料跟位置的比例是(1 : 2)    N/H (N : 資料，Ｈ：空間)
+- collision(key相同，撞到) ->  rate
+                            ->  collision handling  ->  linked list
+                                                    ->  open addresing
+
+Implement a hash function :
+
+hashplus(char *key){
+    uint hv = 0;
+    int len;
+    for(int i = 0; i<strlen(key); i++){
+        hv = hv + key[i];
+    }
+
+
+}

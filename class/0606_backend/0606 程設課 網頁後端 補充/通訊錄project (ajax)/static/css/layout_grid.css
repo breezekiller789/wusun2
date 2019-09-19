@@ -1,0 +1,39 @@
+.wrap_area {
+    display: grid;
+    grid-template-columns: 200px 50px auto 50px 200px;
+    grid-template-rows: 10% auto 100px;
+    grid-template-areas:
+        "header header header header header"
+        "nav  context context context context"
+        "footer footer footer footer footer";
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.header {
+    grid-area: header;
+    background-color: #eef7f2;
+    text-align: center;
+}
+
+.content {
+    grid-area: context;
+    background-color: #c4d7d6;
+    padding: 50px;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #dfecd5;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+.footer>p>span {
+    color: yellow;
+}
